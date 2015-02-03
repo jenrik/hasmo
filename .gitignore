@@ -3,7 +3,7 @@ dist/
 test/hasmo.js
 test/hasmo.css
 test/hasmo.css.map
-test/template.js
+test/templates/
 test/angular.min.js
 node_modules/
 bower_components/

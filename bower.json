@@ -17,7 +17,7 @@
     "test/hasmo.js",
     "test/hasmo.css",
     "test/hasmo.css.map",
-    "test/templates.js",
+    "test/templates/",
     "test/angular.min.js",
     "test/templates/",
     "node_modules/",
