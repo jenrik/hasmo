@@ -1,7 +1,7 @@
 {
   "name": "hasmo",
   "version": "0.0.0",
-  "description": "A web UI toolkit focused on diplaying verious types of information",
+  "description": "A web UI toolkit focused on diplaying various types of information",
   "main": "index.js",
   "dependencies": {
     "grunt": "^0.4.5",

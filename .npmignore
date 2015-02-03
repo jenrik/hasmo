@@ -1,6 +1,8 @@
 .tmp/
 dist/
 test/hasmo.js
+test/hasmo.css
+test/hasmo.css.map
 test/template.js
 test/angular.min.js
 node_modules/
