@@ -1,5 +1,5 @@
 {
-  "name": "hasmo",
+  "name": "Hasmo",
   "version": "0.0.0",
   "authors": [
     "Jacob Jenner Rasmussen <jacob@jener.dk>"
@@ -14,14 +14,10 @@
   "ignore": [
     ".tmp/",
     "dist/",
-    "test/hasmo.js",
-    "test/hasmo.css",
-    "test/hasmo.css.map",
-    "test/templates/",
-    "test/angular.min.js",
-    "test/templates/",
+    "src/hasmo.css",
+    "src/hasmo.css.map",
     "node_modules/",
-    "bower_components/",
+    "src/bower/",
     ".sass-cache"
   ],
   "devDependencies": {

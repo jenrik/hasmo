@@ -14,10 +14,10 @@ module.exports = function(grunt) {
 			version: bower.version,
 			banner: grunt.file.read('banner.txt')
 				.replace('%version%', bower.version)
-				.replace('%name%', 'Hasmo')
+				.split('%name%').join('Hasmo')
 		},
 		watch: {
-			dev: {
+			main: {
 				files: ['src/**/*'],
 				tasks: ['devBuild']
 			}
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 				quoteChar: '\'',
 				indentString: '\t'
 			},
-			main: {
+			build: {
 				src: ['src/**/*.tpl.html'],
 				dest: '.tmp/template.js'
 			}
@@ -39,14 +39,14 @@ module.exports = function(grunt) {
 				compress: true,
 				report: 'gzip'
 			},
-			main: {
+			build: {
 				files: {
 					'dist/hasmo.min.js': ['tmp/template.js', 'src/hasmo.js']
 				}
 			}
 		},
 		sass: {
-			main: {
+			build: {
 				options: {
 					style: 'compressed',
 					loadPath: 'src/sass/',
@@ -56,39 +56,14 @@ module.exports = function(grunt) {
 					'dist/hasmo.min.css': 'src/hasmo.scss'
 				}
 			},
-			dev: {
+			devBuild: {
 				options: {
 					style: 'expanded',
 					loadPath: 'src/sass/'
 				},
 				files: {
-					'test/hasmo.css': 'src/hasmo.scss'
+					'src/hasmo.css': 'src/hasmo.scss'
 				}
-			}
-		},
-		copy: {
-			devBuild: {
-				files: [
-					{
-						expand: true,
-						cwd: 'src/',
-						src: 'templates/**/*.tpl.html',
-						dest: 'test/',
-						filter: 'isFile'
-					},
-					{
-						src: 'src/hasmo.js',
-						dest: 'test/hasmo.js'
-					}
-				],
-			},
-			testDeps: {
-				files: [
-					{
-						src: 'bower_components/angular/angular.min.js',
-						dest: 'test/angular.min.js'
-					}
-				]
 			}
 		},
 		jshint: {
@@ -119,21 +94,17 @@ module.exports = function(grunt) {
 					'angular': true
 				}
 			},
-			main: [
+			build: [
 				'src/hasmo.js'
 			]
 		},
 		clean: {
-			main: [
-				'test/*',
-				'!test/index.html',
-				'!test/test.js',
-				'dist/*'
-			]
+			dev: ['src/hasmo.css'],
+			build: ['dist/*']
 		}
 	});
 
-	grunt.registerTask('build', ['jshint', 'html2js', 'sass', 'uglify']);
-	grunt.registerTask('devBuild', ['sass:dev', 'copy:devBuild']);
-	grunt.registerTask('default', ['copy:testDeps', 'devBuild', 'watch']);
+	grunt.registerTask('build', ['clean', 'jshint', 'html2js', 'sass', 'uglify']);
+	grunt.registerTask('devBuild', ['sass']);
+	grunt.registerTask('default', ['devBuild', 'watch']);
 }

@@ -1,10 +1,7 @@
 .tmp/
 dist/
-test/hasmo.js
-test/hasmo.css
-test/hasmo.css.map
-test/templates/
-test/angular.min.js
+src/hasmo.css
+src/hasmo.css.map
 node_modules/
-bower_components/
+src/bower/
 .sass-cache
