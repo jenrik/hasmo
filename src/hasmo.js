@@ -9,3 +9,22 @@ hasmo.directive('bar', function() {
 		}
 	};
 });
+
+hasmo.directive('gauge', function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'templates/gauge.tpl.html',
+		scope: {
+			value: '@value'
+		},
+		controller: 'gaugeController'
+	};
+});
+
+hasmo.controller('gaugeController', ['$scope', function($scope) {
+	$scope.$watch('value', function() {
+		$scope.deg = {
+			transform: 'rotate(' + ($scope.value*2.7-135) + 'deg) translateY(15%)'
+		}
+	});
+}]);

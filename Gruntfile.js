@@ -99,7 +99,7 @@ module.exports = function(grunt) {
 			]
 		},
 		clean: {
-			dev: ['src/hasmo.css'],
+			dev: ['src/hasmo.css', 'src/hasmo.css.map'],
 			build: ['dist/*']
 		}
 	});

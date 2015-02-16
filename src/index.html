@@ -37,8 +37,19 @@
 		<table>
 			<tr>
 				<td>Bar</td>
-				<td><bar value="{{percent}}"></bar></td>
-				<td><input type="range" ng-model="percent" ng-init="percent = 1"></td>
+				<td><bar value="{{ percentBar }}"></bar></td>
+				<td>
+					<input type="range" ng-model="percentBar" ng-init="percentBar = 1">
+					<p>{{percentBar}}</p>
+				</td>
+			</tr>
+			<tr>
+				<td>Gauge</td>
+				<td><gauge value="{{ percentGauge }}"></gauge></td>
+				<td>
+					<input type="range" ng-model="percentGauge" ng-init="percentGauge = 1">
+					<p>{{percentGauge}}</p>
+				</td>
 			</tr>
 		</table>
 	</body>

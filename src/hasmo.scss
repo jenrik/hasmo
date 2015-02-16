@@ -10,3 +10,17 @@ bar {
 		background-color: #BBB;
 	}	
 }
+
+gauge {
+	.hasmo.gauge.background {
+		width: 200px;
+		height: 200px;
+		background-color: #BBB;
+	}
+
+	.hasmo.gauge.pointer {
+		transform-origin: 50% 100%;
+		width: auto;
+		height: 50%;
+	}
+}
