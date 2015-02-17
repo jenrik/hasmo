@@ -43,12 +43,16 @@
 					<p>{{percentBar}}</p>
 				</td>
 			</tr>
-			<tr>
+			<tr ng-init="gauge = {min:0,max:100,percent:0}">
 				<td>Gauge</td>
-				<td><gauge value="{{ percentGauge }}"></gauge></td>
+				<td><gauge value="{{gauge.percent}}" max="{{gauge.max}}" min="{{gauge.min}}"></gauge></td>
 				<td>
-					<input type="range" ng-model="percentGauge" ng-init="percentGauge = 1">
-					<p>{{percentGauge}}</p>
+					<input type="range" ng-model="gauge.percent">
+					<p>Value: {{gauge.percent}}</p>
+					<input type="range" ng-model="gauge.min">
+					<p>Min: {{gauge.min}}</p>
+					<input type="range" ng-model="gauge.max">
+					<p>Max: {{gauge.max}}</p>
 				</td>
 			</tr>
 		</table>
