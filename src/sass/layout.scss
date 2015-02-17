@@ -1,0 +1,33 @@
+table {
+	table-layout: fixed;
+}
+
+td {
+	
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $background;
+}
+
+.info-box {
+	@extend %border;
+	width: 100%;
+	height: 100%;
+
+	@mixin info-box-style($name, $color) {
+		.#{$name} {
+			background-color: $color;
+			border: $darken($color, $darken);
+		}	
+	}
+	
+	@include info-box-style("success", $color-success);
+	@include info-box-style("warning", $color-warning);
+	@include info-box-style("danger", $color-danger);
+}
+

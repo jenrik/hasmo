@@ -1,26 +1,29 @@
-bar {
-	width: 100%;
-	height: 100%;
-	display: block;
-	background-color: #777;
+@charset "UTF-8";
 
-	.hasmo.subbar {
-		width: 100%;
-		display: block;
-		background-color: #BBB;
-	}	
+/**
+ * Color variables
+ */
+$background: #6B6B6B;
+$color-success: #00FF00;
+$color-warning: #FF3333;
+$color-danger: #FF0000;
+
+$element-background: #7A7A7A;
+$element-indicator: #595959;
+$element-border: #474747;
+$element-border-width: 6px; //Deprecated
+
+/**
+ * Variables
+ */
+$lighten: 10%;
+$darken: 5%;
+$border-width: 5px;
+
+%border {
+	border: $element-border-width solid $element-border;
 }
 
-gauge {
-	.hasmo.gauge.background {
-		width: 200px;
-		height: 200px;
-		background-color: #BBB;
-	}
 
-	.hasmo.gauge.pointer {
-		transform-origin: 50% 100%;
-		width: auto;
-		height: 50%;
-	}
-}
+@import "layout.scss";
+@import "directives.scss";
