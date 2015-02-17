@@ -35,17 +35,25 @@
 
 		<h1>Hasmo - Test page</h1>
 		<table>
-			<tr>
-				<td>Bar</td>
-				<td><bar value="{{ percentBar }}"></bar></td>
+			<tr ng-init="bar = {min:0,max:100,percent:0}">
+				<td><h1>Bar</h1></td>
 				<td>
-					<input type="range" ng-model="percentBar" ng-init="percentBar = 1">
-					<p>{{percentBar}}</p>
+					<bar value="{{bar.percent}}" max="{{bar.max}}" min="{{bar.min}}"></bar>
+				</td>
+				<td>
+					<input type="range" ng-model="bar.percent">
+					<p>Value: {{bar.percent}}</p>
+					<input type="range" ng-model="bar.min">
+					<p>Min: {{bar.min}}</p>
+					<input type="range" ng-model="bar.max">
+					<p>Max: {{bar.max}}</p>
 				</td>
 			</tr>
 			<tr ng-init="gauge = {min:0,max:100,percent:0}">
-				<td>Gauge</td>
-				<td><gauge value="{{gauge.percent}}" max="{{gauge.max}}" min="{{gauge.min}}"></gauge></td>
+				<td><h1>Gauge</h1></td>
+				<td>
+					<gauge value="{{gauge.percent}}" max="{{gauge.max}}" min="{{gauge.min}}"></gauge>
+				</td>
 				<td>
 					<input type="range" ng-model="gauge.percent">
 					<p>Value: {{gauge.percent}}</p>
