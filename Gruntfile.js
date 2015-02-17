@@ -6,6 +6,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 
 	var bower = grunt.file.readJSON('bower.json');
 
@@ -18,7 +19,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			main: {
-				files: ['src/**/*'],
+				files: ['src/**/*.scss', '!src/hasmo.css*'],
 				tasks: ['devBuild']
 			}
 		},
@@ -101,10 +102,20 @@ module.exports = function(grunt) {
 		clean: {
 			dev: ['src/hasmo.css', 'src/hasmo.css.map'],
 			build: ['dist/*']
+		},
+		connect: {
+			dev: {
+				options: {
+					base: 'src/',
+					livereload: true,
+					open: true,
+					useAvailablePort: true
+				}
+			}
 		}
 	});
 
 	grunt.registerTask('build', ['clean', 'jshint', 'html2js', 'sass', 'uglify']);
 	grunt.registerTask('devBuild', ['sass']);
-	grunt.registerTask('default', ['devBuild', 'watch']);
+	grunt.registerTask('default', ['devBuild', 'connect', 'watch']);
 }
