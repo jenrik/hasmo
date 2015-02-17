@@ -22,7 +22,7 @@ hasmo.controller('hasmoLimitController', ['$scope', function($scope) {
 	$scope.$watch('max', function() {
 		if ($scope.max === undefined) $scope.max = 100
 	});
-	$scope.$watch('value', function() {
+	$scope.$watch('value+min+max', function() {
 		$scope.val = Math.min(Math.max($scope.value-$scope.min, 0), $scope.max-$scope.min)*(100/($scope.max-$scope.min));
 	})
 }]);
@@ -39,12 +39,3 @@ hasmo.directive('gauge', function() {
 		controller: 'hasmoLimitController'
 	};
 });
-
-hasmo.controller('hasmoGaugeController', ['$scope', function($scope) {
-	$scope.$watch('value', function() {
-		var val = $scope.val*(270/($scope.max-$scope.min))-135
-		$scope.deg = {
-			transform: 'rotate(' + val + 'deg) translateY(15%)'
-		}
-	});
-}]);
