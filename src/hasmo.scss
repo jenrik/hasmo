@@ -4,9 +4,9 @@
  * Color variables
  */
 $background: #6B6B6B;
-$color-success: #00FF00;
-$color-warning: #FF3333;
-$color-danger: #FF0000;
+$color-success: #4FFF4F;
+$color-warning: #FFBB52;
+$color-danger: #FF5A5A;
 
 $element-background: #7A7A7A;
 $element-indicator: #595959;
@@ -17,11 +17,13 @@ $element-border-width: 6px; //Deprecated
  * Variables
  */
 $lighten: 10%;
-$darken: 5%;
+$darken: 8%;
 $border-width: 5px;
+$border-radius: 5px;
 
 %border {
 	border: $element-border-width solid $element-border;
+	border-radius: $border-radius;
 }
 
 

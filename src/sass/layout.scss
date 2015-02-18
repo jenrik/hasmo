@@ -15,14 +15,14 @@ body {
 }
 
 .info-box {
-	@extend %border;
 	width: 100%;
 	height: 100%;
 
 	@mixin info-box-style($name, $color) {
-		.#{$name} {
+		&.#{$name} {
 			background-color: $color;
-			border: $darken($color, $darken);
+			border: $border-width solid darken($color, $darken);
+			border-radius: $border-radius;
 		}	
 	}
 	
